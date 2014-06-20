@@ -9,12 +9,18 @@ var options = {
     rejectUnauthorized: false
 };
 
+// https.createServer(options, function (req, res) {
+//     if (req.client.authorized) {
+//         res.writeHead(200, '{&quot;Content-Type&quot;: &quot;application/json&quot;}');
+//         res.end('{&quot;status&quot;:&quot;approved&quot;}');
+//     } else {
+//         res.writeHead(401, '{&quot;Content-Type&quot;: &quot;application/json&quot;}');
+//         res.end('{&quot;status&quot;:&quot;denied&quot;}');
+//     }
+// }).listen(443);
+
+
 https.createServer(options, function (req, res) {
-    if (req.client.authorized) {
-        res.writeHead(200, {&quot;Content-Type&quot;: &quot;application/json&quot;});
-        res.end('{&quot;status&quot;:&quot;approved&quot;}');
-    } else {
-        res.writeHead(401, {&quot;Content-Type&quot;: &quot;application/json&quot;});
-        res.end('{&quot;status&quot;:&quot;denied&quot;}');
-    }
-}).listen(443);
+  res.writeHead(200);
+  res.end("hello world, how you doing\n");
+}).listen(8000);
